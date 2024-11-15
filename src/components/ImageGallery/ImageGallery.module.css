@@ -1,0 +1,12 @@
+.list {
+    margin: 0 24px auto;
+    max-width: 1500px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.listItem {
+    width: calc((100% - 48px) / 4);
+}
