@@ -1,12 +1,12 @@
 import css from "./ImageGallery.module.css";
 import ImageCard from "../ImageCard/ImageCard";
 
-const ImageGallery = (data, getModal) => {
+const ImageGallery = ( data, handleModal ) => {
   return (
     <ul className={css.list}>
-      {data.map((item) => (
-        <li className={css.listItem} key={item.id}>
-          <ImageCard photo={item} onClick={() => getModal(item)} />
+      {data.map((image) => (
+        <li className={css.listItem} key={image.id}>
+          <ImageCard image={image} handleModal={handleModal} />
         </li>
       ))}
     </ul>

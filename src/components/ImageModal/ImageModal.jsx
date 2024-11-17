@@ -1,13 +1,9 @@
 import Modal from "react-modal";
 
-Modal.setAppElement("#root");
-
-const ImageModal = (isOpen, onRequestClose, selectedImage) => {
-  return (
-    <Modal
+const ImageModal = (isOpen, onClose, urls, alt_description)  => {
+  return<Modal
       isOpen={isOpen}
-      onRequestClose={onRequestClose}
-      contentLabel="Image Modal"
+      onRequestClose={onClose}
       style={{
         content: {
           maxWidth: "600px",
@@ -17,15 +13,10 @@ const ImageModal = (isOpen, onRequestClose, selectedImage) => {
         },
       }}
     >
-      {selectedImage ? (
-        <div>
-          <img src={selectedImage.urls.regular} alt="Selected" />
-          <button onClick={onRequestClose}>Close</button>
-        </div>
-      ) : (
-        <p>No image Selected</p>
-      )}
+          <button onClick={onClose}>Close</button>
+          <img src={urls?.regular} alt={alt_description}/>
+      
+  
     </Modal>
-  );
 };
 export default ImageModal;

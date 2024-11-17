@@ -1,12 +1,13 @@
 import css from "./ImageCard.module.css";
 
-const ImageCard = (data, onClick) => {
+const ImageCard = (image, handleModal) => {
   return (
-    <div onClick={onClick}>
+    <div>
       <img
-        src={data.urls.small}
-        alt={data.alt_description}
         className={css.image}
+        src={image.urls.small}
+        alt={image.alt_description}
+        onClick={() => handleModal(image)}
       />
     </div>
   );
