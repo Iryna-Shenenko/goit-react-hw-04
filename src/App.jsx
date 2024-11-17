@@ -1,4 +1,4 @@
-// import "./App.css";
+
 import fetchImages from "./Api/api";
 import SearchBar from "./components/ SearchBar/ SearchBar";
 import ImageGallery from "./components/imageGallery/imageGallery";
@@ -11,11 +11,11 @@ import ImageModal from "./components/ImageModal/ImageModal";
 
 const App = () => {
   const [loader, setLoader] = useState(false);
-  const [isOpenModal, setIsOpenModal] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState({});
   const [page, setPage] = useState(0);
   const [pagination, setPagination] = useState(false);
-  const [totalPage, setTotalPages] = useState (0);
+  const [totalPages, setTotalPages] = useState (0);
   const [results, setResults] = useState ([]);
   const [firstLoad, setFirstLoad] = useState(true);
   const [query, setQuery] = useState ("");
@@ -34,14 +34,14 @@ const App = () => {
 return;
 };
   const toggleIsOpen = () => {
-  setIsOpenModal(!isOpenModal);
+  setIsModalOpen(!isModalOpen);
 };
 const handleLoadMore = () => {
   setPage(page + 1);
   setPagination (true);
   return;
 };
-const onSearch = (query, perPage) => {
+const handleQuery = (query, perPage) => {
   if (perPage !== "") setPerPage(perPage);
   setFirstLoad(true);
   setQuery(query);
@@ -80,21 +80,20 @@ useEffect (() =>{
 
   return (
     <div>
-      <SearchBar onSearch={onSearch}  query={query} id="gallery" />
+      <SearchBar handleQuery={handleQuery}  query={query} id="gallery" />
       { firstLoad ? ( "") : results.length > 0? (
         <ImageGallery data={results} handleModal={handleModal} />
       ) : (
         <h2>Image not Found ...</h2>
       )}
-{error.isActive && (
-  <ErrorMessage code={error.errCode} massage={error.errMsg} />
-  
-)}
+{error.isActive &&
+  <ErrorMessage massage={error.errMsg} />
+  }
 {loader && <Loader />}
-{page < totalPage && <LoadMoreBtn handleLoadMore={handleLoadMore} />} 
+{page < totalPages && <LoadMoreBtn handleLoadMore={handleLoadMore} />} 
 
       <ImageModal
-        isOpen={isOpenModal}
+        isOpen={isModalOpen}
         onClose={toggleIsOpen}
         selectedImage={selectedImage}
       />

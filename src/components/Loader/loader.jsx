@@ -2,6 +2,8 @@ import { ProgressBar } from "react-loader-spinner";
 
 const Loader = () => {
   return (
+    <div>   
+      
     <ProgressBar
       visible={true}
       height="80"
@@ -12,7 +14,8 @@ const Loader = () => {
       wrapperStyle={{}}
       wrapperClass=""
     />
-  );
-};
+    </div>
+  )
+}
 
 export default Loader;

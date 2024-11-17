@@ -1,6 +1,6 @@
 import Modal from "react-modal";
 
-const ImageModal = (isOpen, onClose, urls, alt_description)  => {
+const ImageModal = ({isOpen, onClose, selectedImage} )  => {
   return<Modal
       isOpen={isOpen}
       onRequestClose={onClose}
