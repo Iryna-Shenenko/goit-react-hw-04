@@ -1,7 +1,7 @@
 
 import fetchImages from "./Api/api";
 import SearchBar from "./components/ SearchBar/ SearchBar";
-import ImageGallery from "./components/imageGallery/imageGallery";
+import ImageGallery from "./components/ImageGallery/ImageGallery";
 import { useEffect, useState } from "react";
 import Loader from "./components/Loader/loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
