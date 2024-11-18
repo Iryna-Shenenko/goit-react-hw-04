@@ -10,12 +10,12 @@ import ImageModal from "./components/ImageModal/ImageModal";
 
 
 const App = () => {
-  const [loader, setLoader] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState({});
   const [page, setPage] = useState(0);
   const [pagination, setPagination] = useState(false);
   const [totalPages, setTotalPages] = useState (0);
+  const [loader, setLoader] = useState(false);
   const [results, setResults] = useState ([]);
   const [firstLoad, setFirstLoad] = useState(true);
   const [query, setQuery] = useState ("");

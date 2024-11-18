@@ -1,5 +1,6 @@
+import css from "./ SearchBar.module.css";
 import toast, { Toaster } from "react-hot-toast";
-const SearchBar = (handleQuery) => {
+const SearchBar = ({handleQuery}) => {
   const createQuery = (evt) => {
     evt.preventDefault();
     const newQuery = evt.target.elements.query.value.trim().toLowerCase();
@@ -9,19 +10,19 @@ const SearchBar = (handleQuery) => {
     return handleQuery(newQuery);
   };
   return (
-    <header>
-      <form onSubmit={createQuery}>
+    <header className={css.container}>
+      <form  className={css.form} onSubmit={createQuery}>
       
      
         <input
-         
+         className={css.text}
           type="text"
           autoComplete="off"
           autoFocus
           placeholder="Search images and photos"
           name="query"
         />
-          <button type="submit">Search</button>
+          <button className={css.button} type="submit">Search</button>
           <Toaster />
      
       </form>
